@@ -39,6 +39,7 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 
 gem "foreman"
+gem 'pg'
 
 group :production, :staging do
   gem "rails_12factor"
