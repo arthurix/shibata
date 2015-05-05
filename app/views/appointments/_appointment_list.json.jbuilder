@@ -1,0 +1,1 @@
+json.(appointment, :visit_type, :date, :time, :duration, :patient_id, :obs)
