@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504083736) do
+ActiveRecord::Schema.define(version: 20150505074039) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.string   "visit_type", limit: 255
+    t.text     "obs",        limit: 65535
+    t.date     "date"
+    t.time     "time"
+    t.integer  "duration",   limit: 4
+    t.integer  "patient_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "patients", force: :cascade do |t|
     t.string   "name",            limit: 255
