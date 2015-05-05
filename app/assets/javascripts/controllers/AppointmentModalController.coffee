@@ -30,6 +30,10 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
         )
       )
     else
-      $scope.appointment = {}
+      $scope.appointment =
+        visit_type: "Evaluation"
+        duration: 0
+        date: new Date()
+        time: new Date()
 
 ])
