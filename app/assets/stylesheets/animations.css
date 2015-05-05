@@ -16,7 +16,7 @@
   height: 45px;
 }
 .alert.ng-hide-add.ng-hide-add-active {
-  height: 0;
+  height: 0px;
 }
 
 /* set reference point */

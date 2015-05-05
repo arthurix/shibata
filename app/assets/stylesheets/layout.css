@@ -75,6 +75,11 @@ ul.icons-list.text-xl {
   margin-bottom: 0px;
   background: #449d44;
 }
+.alert.alert-danger {
+  background-color: #E04343;
+  border-color: #BA2727;
+}
+
 .badge {
   font-size: 11px;
   font-weight: 600;
@@ -1587,6 +1592,18 @@ label {
 .table.table-spec{
   margin-bottom: 0px;
 }
+.table > thead > tr > th, 
+.table > thead > tr > td, 
+.table > tbody > tr > th, 
+.table > tbody > tr > td, 
+.table > tfoot > tr > th, 
+.table > tfoot > tr > td {
+  padding: 5px;
+}
+.table > thead > tr:first-child > th {
+  padding: 8px;
+}
+
 .feed-item {
   position: relative;
   padding: 0;

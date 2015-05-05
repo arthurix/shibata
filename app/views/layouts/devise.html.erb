@@ -19,7 +19,8 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<%= yield %>
-
+<div class="devise-container">
+	<%= yield %>
+</div>
 </body>
 </html>
