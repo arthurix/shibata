@@ -38,6 +38,9 @@ shibata.config([ '$routeProvider', 'flashProvider',
       ).when('/patient/:patientId/edit',
         templateUrl: "patient_form.html"
         controller: 'PatientController'
+      ).when('/appointments',
+        templateUrl: "appointments.html"
+        controller: 'AppointmentsController'
       )
 ])
 
