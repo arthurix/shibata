@@ -51,4 +51,4 @@ describe "PatientController", ->
     it 'loads the given patient', ->
       httpBackend.flush()
       expect(scope.patient).toBe(null)
-      expect(flash.error).toBe("Patient not found")
+      expect(flash.error).toBe("Client not found")
