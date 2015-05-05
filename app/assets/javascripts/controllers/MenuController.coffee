@@ -1,12 +1,15 @@
 controllers = angular.module('controllers')
-controllers.controller('MenuController', [ '$scope', '$location', '$timeout', '$window', 'flash'
-  ($scope,$location,$timeout,$window,flash)->
+controllers.controller('MenuController', [ '$scope', '$location', '$timeout', '$window', 'flash', '$http'
+  ($scope,$location,$timeout,$window,flash,$http)->
 
-    $scope.getPage = (path) ->
+    $scope.isRoot = ->
+      $location.path().length == 1
+
+    $scope.isActive = (path) ->
       if $location.path().substr(0, path.length) == path
-        'active'
+        true
       else
-        ''
+        false
 
     $scope.toSchedule = () ->
       $location.path("/appointments")
@@ -15,6 +18,7 @@ controllers.controller('MenuController', [ '$scope', '$location', '$timeout', '$
       $location.path("/patients")
 
     $scope.alertShow = true
+
     $scope.logout = ->
       $http(
         method: 'DELETE'

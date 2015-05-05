@@ -60,14 +60,14 @@
 				
 				<ul id="main-nav" class="open-active">			
 
-					<li ng-click="toClients()" ng-class="getPage('/patient')">				
+					<li ng-class="{active: (isActive('/patient') || isRoot())}" ng-click="toClients()">				
 						<a href="">
 							<i class="fa fa-group"></i>
 							Clients
 						</a>				
 					</li>
 								
-					<li ng-click="toSchedule()" ng-class="getPage('/appointments')">
+					<li ng-class="{active: isActive('/appointment')}" ng-click="toSchedule()">
 						<a href="">
 							<i class="fa fa-calendar"></i>
 							Schedule
