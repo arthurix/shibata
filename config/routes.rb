@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
+  devise_for :users
+
+  authenticated :user do
+    get '/', to: "dashboard#index"
+  end
+  unauthenticated do
+    get '/', to: redirect("/users/sign_in")
+  end
 
   resources :patients, only: [:index, :show, :create, :update, :destroy]
   

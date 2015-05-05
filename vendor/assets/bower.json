@@ -9,6 +9,7 @@
     "angular-mocks": "latest",
     "angular-ui-bootstrap-bower": "latest",
     "angular-loading-bar": "latest",
-    "angular-flash": "latest"
+    "angular-flash": "latest",
+    "angular-devise": "latest"
   }
 }

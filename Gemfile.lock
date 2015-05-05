@@ -204,7 +204,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angular-rails-templates
+  angular-rails-templates (= 0.1.5)
   bower-rails
   byebug
   capybara
@@ -221,7 +221,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
-  spring
-  teaspoon
+  spring (= 1.3.4)
+  teaspoon (= 0.9.1)
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

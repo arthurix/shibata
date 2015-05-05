@@ -21,4 +21,5 @@
 //= require angular-flash/dist/angular-flash
 //= require angular-ui-bootstrap-bower/ui-bootstrap-tpls
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
+
 //= require_tree .

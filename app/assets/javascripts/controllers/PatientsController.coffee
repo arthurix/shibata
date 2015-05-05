@@ -1,6 +1,6 @@
 controllers = angular.module('controllers')
-controllers.controller("PatientsController", [ '$scope', '$routeParams', '$location', 'patientsFactory', '$modal'
-  ($scope,$routeParams,$location,patientsFactory,$modal)->
+controllers.controller("PatientsController", [ '$http', '$scope', '$routeParams', '$location', 'patientsFactory', '$modal'
+  ($http,$scope,$routeParams,$location,patientsFactory,$modal)->
 
     $scope.search = (keywords)->  $location.path("/patients/#{keywords}")
     $scope.view = (patientId)-> $location.path("/patient/#{patientId}/view")

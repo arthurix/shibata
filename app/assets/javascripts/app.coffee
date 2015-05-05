@@ -20,7 +20,10 @@ shibata.config([ '$routeProvider', 'flashProvider',
     flashProvider.successClassnames.push("alert-success")
 
     $routeProvider
-      .when('/patients',
+      .when('/',
+        templateUrl: "patients.html"
+        controller: 'PatientsController'
+      ).when('/patients',
         templateUrl: "patients.html"
         controller: 'PatientsController'
       ).when('/patients/:keywords',

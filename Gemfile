@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 #Bower connector
 gem 'bower-rails'
 #Angular generator
-gem 'angular-rails-templates'
+gem 'angular-rails-templates', '0.1.5'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 #Let's get some authentication going
@@ -44,7 +44,7 @@ group :test, :development do
   gem "capybara"
   gem "database_cleaner"
   gem "selenium-webdriver"
-  gem 'teaspoon'
+  gem 'teaspoon', "0.9.1"
   gem 'phantomjs'
 end
 
@@ -56,6 +56,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '1.3.4'
 end
 
