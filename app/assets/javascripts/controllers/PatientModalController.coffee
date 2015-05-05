@@ -1,6 +1,6 @@
 controllers = angular.module('controllers')
 controllers.controller("PatientModalController", [ '$scope', '$routeParams', '$location', 'flash', 'patientsFactory', '$modalInstance'
-  ($scope,$routeParams,$location, flash,patientsFactory,$modalInstance)->
+  ($scope,$routeParams,$location,flash,patientsFactory,$modalInstance)->
 
     $scope.dismiss = () ->
       $modalInstance.dismiss()

@@ -2,10 +2,8 @@ controllers = angular.module('controllers')
 controllers.controller("AppointmentModalController", [ '$scope', '$routeParams', '$location', 'flash', 'appointmentsFactory', '$modalInstance'
   ($scope,$routeParams,$location,flash,appointmentsFactory,$modalInstance)->
 
-  	$scope.dismiss = () ->
+    $scope.dismiss = () ->
       $modalInstance.dismiss()
-
-    $scope.appointmentId = $routeParams.appointmentId
 
     $scope.save = ->
       onError = (_httpResponse)-> flash.error = "Something went wrong"
@@ -16,10 +14,12 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
       else
         appointmentsFactory.create($scope.appointment,
           ( (newAppointment)-> 
-              $location.path("/appointment/#{newAppointment.id}/view")
+              $location.path("/appointments")
               $modalInstance.close()
           ),
           onError)
+
+    $scope.appointmentId = $routeParams.appointmentId #THIS MUST BE CHANGED FOR EDIT
 
     if $routeParams.appointmentId
       appointmentsFactory.get({appointmentId: $routeParams.appointmentId},

@@ -8,9 +8,56 @@
       {{flash.message}}
     </article>
   </aside>
-  <form role="form" class="edit-user form-horizontal">
 
-  </form>
+  <div class="row">
+    <form role="form" class="edit-user form-horizontal">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <label class="col-md-2" for="visit_type">Type</label>
+          <div class="col-md-10">
+            <input type="text" name="visit_type" class="form-control" placeholder="Jonh Doe" ng-model="appointment.visit_type">
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <label class="col-md-2" for="date">Date</label>
+          <div class="col-md-10">
+            <input type="text" name="date" class="form-control" ng-model='appointment.date' placeholder="client@email.com">
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <label class="col-md-2" for="time">Time</label>
+          <div class="col-md-10">
+            <input type="text" name="time" class="form-control" ng-model='appointment.time' placeholder="(00)0000-0000">
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <label class="col-md-2" for="duration">Duration</label>
+          <div class="col-md-10">
+            <input type="text" name="duration" class="form-control" ng-model='appointment.duration' placeholder="(00)0000-0000">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <label class="col-md-2" for="patient_id">Patient_id</label>
+          <div class="col-md-10">
+            <input type="text" name="patient_id" class="form-control" ng-model='appointment.patient_id' placeholder="1">
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <label class="col-md-2" for="obs">Obs</label>
+          <div class="col-md-10">
+            <input type="text" name="obs" class="form-control" ng-model='appointment.obs' placeholder="12-01-1988">
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
 </div>
 <div class="modal-footer">
   <button class="btn btn-default fc-button-left" ng-click="dismiss()"> Cancel</button>
