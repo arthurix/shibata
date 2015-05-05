@@ -1,0 +1,35 @@
+controllers = angular.module('controllers')
+controllers.controller("AppointmentModalController", [ '$scope', '$routeParams', '$location', 'flash', 'appointmentsFactory', '$modalInstance'
+  ($scope,$routeParams,$location,flash,appointmentsFactory,$modalInstance)->
+
+  	$scope.dismiss = () ->
+      $modalInstance.dismiss()
+
+    $scope.appointmentId = $routeParams.appointmentId
+
+    $scope.save = ->
+      onError = (_httpResponse)-> flash.error = "Something went wrong"
+      if $scope.appointment.id
+        $scope.appointment.$save(
+          ( ()-> $modalInstance.close($scope.appointment) ),
+          onError)
+      else
+        appointmentsFactory.create($scope.appointment,
+          ( (newAppointment)-> 
+              $location.path("/appointment/#{newAppointment.id}/view")
+              $modalInstance.close()
+          ),
+          onError)
+
+    if $routeParams.appointmentId
+      appointmentsFactory.get({appointmentId: $routeParams.appointmentId},
+        ( (appointment)-> $scope.appointment = appointment ),
+        ( (httpResponse)->
+          $scope.appointment = null
+          flash.error   = "Client not found"
+        )
+      )
+    else
+      $scope.appointment = {}
+
+])
