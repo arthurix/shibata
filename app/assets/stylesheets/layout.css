@@ -73,7 +73,7 @@ ul.icons-list.text-xl {
   padding: 10px 35px;
   border-radius: 0px;
   margin-bottom: 0px;
-  background: #2DA62F;
+  background: #449d44;
 }
 .badge {
   font-size: 11px;
@@ -590,6 +590,7 @@ fieldset[disabled] .btn-twitter.active {
 .nav-tabs .dropdown-menu > .active > a:hover,
 .nav-tabs .dropdown-menu > .active > a:focus {
   color: #fff;
+  cursor: pointer;
 }
 .text-muted {
   color: #999999;
@@ -641,7 +642,7 @@ label {
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   color: #fff;
-  background-color: #e5412d;
+  background-color: #3498db;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -2891,6 +2892,7 @@ table.dataTable th:active {
 #top-bar .nav > li {
   float: left;
   font-size: 12px;
+  cursor: pointer;
 }
 #top-bar .nav > li > a {
   padding: 8px 10px;

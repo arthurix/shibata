@@ -23,7 +23,7 @@ body.devise {
   width: 100px;
   height: 100px;
   margin-left: -50px;
-  background-color: #e5412d;
+  background-color: #5cb85c;
   border-top-right-radius: 100px;
   border-top-left-radius: 100px;
   border-bottom-right-radius: 100px;
@@ -73,6 +73,8 @@ body.devise {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 20px;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
 }
 @media (min-width: 768px) {
   #login-container {
