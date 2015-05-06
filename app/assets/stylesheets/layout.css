@@ -629,6 +629,13 @@ fieldset[disabled] .btn-twitter.active {
 .edit-user .form-group label {
   padding-top: 4px;
 }
+.edit-user .notes-field {
+  margin-top: 32px;
+  padding-right: 29px;
+}
+.edit-user .notes-field textarea {
+  height: 252px;
+}
 .label {
   font-weight: 600;
 }
