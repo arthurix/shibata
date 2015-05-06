@@ -59,7 +59,7 @@
             </td>
             <td>{{appointment.time | date:'h:mm a'}}</td>
             <td>{{appointment.obs}}</td>
-            <td>{{appointment.duration}}</td>
+            <td>{{appointment.duration | durationFilter}}</td>
             <td>{{appointment.visit_type}}</td>
           </tr>
           <tr ng-if="filteredAppointments.length == 0" class="text-center">
