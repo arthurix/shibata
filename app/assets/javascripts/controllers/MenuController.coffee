@@ -30,6 +30,9 @@ controllers.controller('MenuController', [ '$scope', '$location', '$timeout', '$
         flash.error   = "Problem on logout."
         return
 
+    $scope.home = ->
+      $location.path("/")
+
     hideAlert = () ->
       $scope.alertShow = false
 
