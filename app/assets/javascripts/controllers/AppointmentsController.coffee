@@ -12,6 +12,8 @@ controllers.controller("AppointmentsController", ['$scope', '$routeParams', '$lo
         resolve:
           appointmentId: ->
             return null
+          patientId: ->
+            return null
       )
       modalInstance.result.then ((updatedPatient) ->
         appointmentsFactory.query((results)-> $scope.appointments = results)
@@ -30,6 +32,8 @@ controllers.controller("AppointmentsController", ['$scope', '$routeParams', '$lo
         resolve:
           appointmentId: ->
             return appointmentId
+          patientId: ->
+            return null
       )
       modalInstance.result.then ((updatedPatient) ->
         appointmentsFactory.query((results)-> $scope.appointments = results)

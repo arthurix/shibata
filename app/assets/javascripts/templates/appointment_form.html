@@ -12,11 +12,12 @@
   <div class="row">
     <form role="form" class="edit-user form-horizontal">
       <div class="col-sm-6">
-
         <div class="form-group patient-group" ng-class="{'has-warning has-feedback':errors.name}">
           <label class="col-md-2" for="patient_id">Patient</label>
           <div class="col-md-10">
-            <input type="text" name="patient_id" class="form-control" ng-model='appointment.patient_id' placeholder="1">
+            <select  id="patient_id" class="form-control" ng-model='appointment.patient_id'>
+              <option ng-selected="(patient.id==appointment.patient_id)" ng-repeat="patient in patients" ng-value="patient.id">{{patient.name}}</option>
+            </select>
           </div>
         </div>
 
@@ -79,9 +80,6 @@
             <datepicker class="well well-sm datepicker-table" ng-model="appointment.date" show-weeks="true" class="well well-sm"></datepicker>
           </div>
         </div>
-
-
-        
       </div>
     </form>
   </div>

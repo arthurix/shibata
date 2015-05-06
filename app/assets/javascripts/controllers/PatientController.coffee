@@ -27,6 +27,26 @@ controllers.controller("PatientController", [ '$scope', '$routeParams', '$resour
         console.log 'Modal dismissed at: ' + new Date
         return
       return
+
+    $scope.openNewAppointment = (size) ->
+      modalInstance = $modal.open(
+        animation: $scope.animationsEnabled
+        templateUrl: 'appointment_form.html'
+        controller: 'AppointmentModalController'
+        size: size
+        resolve:
+          appointmentId: ->
+            return null
+          patientId: ->
+            return $scope.patient.id
+      )
+      modalInstance.result.then ((updatedPatient) ->
+        console.log 'Appointment Added'
+        return
+      ), ->
+        console.log 'Modal dismissed at: ' + new Date
+        return
+      return
         
     if $routeParams.patientId
       patientsFactory.get({patientId: $routeParams.patientId},

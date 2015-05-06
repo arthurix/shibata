@@ -1,6 +1,6 @@
 controllers = angular.module('controllers')
-controllers.controller("AppointmentModalController", [ '$scope', '$routeParams', '$location', 'flash', 'appointmentsFactory', '$modalInstance', 'appointmentId'
-  ($scope,$routeParams,$location,flash,appointmentsFactory,$modalInstance,appointmentId)->
+controllers.controller("AppointmentModalController", [ '$scope', '$routeParams', '$location', 'flash', 'appointmentsFactory', 'patientsFactory', '$modalInstance', 'appointmentId', 'patientId'
+  ($scope,$routeParams,$location,flash,appointmentsFactory,patientsFactory,$modalInstance,appointmentId,patientId)->
 
     $scope.today = new Date()
 
@@ -37,4 +37,8 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
         duration: 0
         date: new Date()
         time: "2000-01-01T12:00:00.000Z"
+      if patientId
+        $scope.appointment.patient_id = patientId
+
+    patientsFactory.query((results)-> $scope.patients = results)
 ])

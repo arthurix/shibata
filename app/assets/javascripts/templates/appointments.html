@@ -24,8 +24,8 @@
             </th>
             <th colspan="3">
               <button class="btn btn-success pull-right" ng-click="openNew('lg')">
-                <i class="fa fa-user-plus"></i>
-                Schedule Appoitment
+                <i class="fa fa-calendar"></i>
+                &nbsp;&nbsp;Schedule Appoitment
               </button>
             </th>
           </tr>
@@ -35,25 +35,17 @@
             <th>Client</th>
             <th>Duration</th>
             <th>Type</th>
-            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="appointment in appointments" class="patientrow">
+          <tr ng-repeat="appointment in appointments" class="patientrow" ng-click="openEdit('lg', appointment.id)">
             <td>
               {{appointment.date | date:"dd/MM/yyyy"}}
-              {{appointment.date}}
             </td>
-            <td>{{appointment.time | date:'h:mma'}}</td>
+            <td>{{appointment.time | date:'h:mm a'}}</td>
             <td>{{appointment.patient_id}}</td>
             <td>{{appointment.duration}}</td>
             <td>{{appointment.visit_type}}</td>
-            <td>
-              <button class="btn btn-success pull-right" ng-click="openEdit('lg', appointment.id)">
-                <i class="fa fa-user-plus"></i>
-                Edit
-              </button>
-            </td>
           </tr>
 
           <tr ng-if="appointments.length == 0" class="text-center">
