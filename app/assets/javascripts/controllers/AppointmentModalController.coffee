@@ -32,8 +32,10 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
       )
 
       $scope.delete = ->
-        $scope.appointment.$delete()
-        $modalInstance.close()
+        $scope.appointment.$delete(
+          ( ()-> $modalInstance.close() ), ()->
+            flash.error = "Something went wrong"
+          )
     else
       $scope.appointment =
         visit_type: "Evaluation"

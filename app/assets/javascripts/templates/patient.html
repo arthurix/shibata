@@ -164,7 +164,7 @@
 
           <div class="portlet-content">
             <div class="table-responsive">
-              <table class="table table-striped table-spec">
+              <table class="table table-striped table-spec table-patient-appointments">
                 <thead>
                   <tr>
                     <th>Date</th>
@@ -177,6 +177,11 @@
                     <td>{{appointment.date | date:"dd/MM/yyyy"}}</td>
                     <td>{{appointment.time | date:'h:mm a'}}</td>
                     <td>{{appointment.visit_type}}</td>
+                  </tr>
+                  <tr ng-if="appointments.length == 0" class="text-center">
+                    <td colspan="3">
+                      No appointments scheduled.
+                    </td>
                   </tr>
                 </tbody>
               </table>

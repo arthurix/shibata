@@ -1606,6 +1606,12 @@ label {
 .table.table-spec{
   margin-bottom: 0px;
 }
+.table.table-spec.table-patient-appointments tbody tr {
+  cursor: pointer;
+}
+.table.table-spec.table-patient-appointments tbody tr:hover {
+  background-color: #eee;
+}
 .table > thead > tr > th, 
 .table > thead > tr > td, 
 .table > tbody > tr > th, 
