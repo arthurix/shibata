@@ -8,18 +8,18 @@
 </div>
 <div class="modal-body">
   <aside class="flash row">
-    <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
+    <article flash-alert duration="0" active-class="alert modal-alert" class="col-md-6 col-md-offset-3">
       {{flash.message}}
     </article>
   </aside>
 
   <div class="row">
-    <form role="form" class="edit-user form-horizontal">
+    <form role="form" class="edit-user form-horizontal" name="appointmentForm" novalidate>
       <div class="col-sm-6">
-        <div class="form-group patient-group" ng-class="{'has-warning has-feedback':errors.name}">
+        <div class="form-group patient-group" ng-class="{'has-warning':(!patientForm.name.$valid && submitted)}">
           <label class="col-md-2" for="patient_id">Patient</label>
           <div class="col-md-10">
-            <select  id="patient_id" class="form-control" ng-model='appointment.patient_id'>
+            <select  id="patient_id" class="form-control" ng-model='appointment.patient_id' required >
               <option ng-selected="(patient.id==appointment.patient_id)" ng-repeat="patient in patients" ng-value="patient.id">{{patient.name}}</option>
             </select>
           </div>

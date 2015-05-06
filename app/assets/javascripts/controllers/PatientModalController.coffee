@@ -2,6 +2,8 @@ controllers = angular.module('controllers')
 controllers.controller("PatientModalController", [ '$scope', '$routeParams', '$location', 'flash', 'patientsFactory', '$modalInstance'
   ($scope,$routeParams,$location,flash,patientsFactory,$modalInstance)->
 
+    $scope.submitted = false
+
     $scope.dismiss = () ->
       $modalInstance.dismiss()
 
@@ -10,18 +12,27 @@ controllers.controller("PatientModalController", [ '$scope', '$routeParams', '$l
       $scope.back()
 
     $scope.save = ->
-      onError = (_httpResponse)-> flash.error = "Something went wrong"
-      if $scope.patient.id
-        $scope.patient.$save(
-          ( ()-> $modalInstance.close($scope.patient) ),
-          onError)
+      $scope.submitted = true 
+
+      onError = (_httpResponse)-> 
+          flash.error = "Please, check all the required fields."
+
+      if $scope.patientForm.$error.required?
+        flash.error = "Please, check all the required fields."
+
       else
-        patientsFactory.create($scope.patient,
-          ( (newPatient)-> 
-              $location.path("/patient/#{newPatient.id}/view")
-              $modalInstance.close()
-          ),
-          onError)
+        flash.error = ""
+        if $scope.patient.id
+          $scope.patient.$save(
+            ( ()-> $modalInstance.close($scope.patient) ),
+            onError)
+        else
+          patientsFactory.create($scope.patient,
+            ( (newPatient)-> 
+                $location.path("/patient/#{newPatient.id}/view")
+                $modalInstance.close()
+            ),
+            onError)
 
     $scope.patientId = $routeParams.patientId
 

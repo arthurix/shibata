@@ -8,17 +8,26 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
       $modalInstance.dismiss()
 
     $scope.save = ->
-      onError = (_httpResponse)-> flash.error = "Something went wrong"
-      if $scope.appointment.id
-        $scope.appointment.$save(
-          ( ()-> $modalInstance.close($scope.appointment) ),
-          onError)
+      $scope.submitted = true 
+
+      onError = (_httpResponse)-> 
+          flash.error = "Please, check all the required fields."
+
+      if $scope.appointmentForm.$error.required?
+        flash.error = "Please, check all the required fields."
+
       else
-        appointmentsFactory.create($scope.appointment,
-          ( (newAppointment)-> 
-              $modalInstance.close()
-          ),
-          onError)
+        flash.error = ""
+        if $scope.appointment.id
+          $scope.appointment.$save(
+            ( ()-> $modalInstance.close($scope.appointment) ),
+            onError)
+        else
+          appointmentsFactory.create($scope.appointment,
+            ( (newAppointment)-> 
+                $modalInstance.close()
+            ),
+            onError)
 
     $scope.appointmentId = appointmentId
 

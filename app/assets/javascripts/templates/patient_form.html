@@ -5,11 +5,11 @@
 </div>
 <div class="modal-body">
   <aside class="flash row">
-    <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
+    <article flash-alert duration="0" active-class="alert modal-alert" class="col-md-6 col-md-offset-3">
       {{flash.message}}
     </article>
   </aside>
-  <form role="form" class="edit-user form-horizontal">
+  <form role="form" class="edit-user form-horizontal" name="patientForm" novalidate>
     <accordion class="accordion">
       <accordion-group heading="Basic Information" is-open="true">
         <div class="col-sm-2 profile-pic">
@@ -20,14 +20,15 @@
           <a class="btn btn-danger"><i class="fa fa-times">&nbsp;&nbsp;Remove</i></a>
         </div>
         <div class="col-sm-5">
-          <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <div class="form-group" ng-class="{'has-warning':(!patientForm.name.$valid && submitted)}">
+
             <label class="col-md-2" for="name">Name</label>
             <div class="col-md-10">
-              <input type="text" name="name" class="form-control" placeholder="Jonh Doe" ng-model="patient.name">
+              <input type="text" name="name" class="form-control" placeholder="Jonh Doe" ng-model="patient.name" required >
             </div>
           </div>
 
-          <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <div class="form-group">
             <label class="col-md-2" for="email">Email</label>
             <div class="col-md-10">
               <input type="text" name="email" class="form-control" ng-model='patient.email' placeholder="client@email.com">
