@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'appointments/index'
-
   devise_for :users
 
   authenticated :user do
@@ -11,8 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :patients, only: [:index, :show, :create, :update, :destroy]
-  resources :appointments, only: [:index, :show, :create, :update, :destroy]
+  resources :appointments
   
+  get '/patient/:patient_id/appointments', to: 'appointments#find_by_patient'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
