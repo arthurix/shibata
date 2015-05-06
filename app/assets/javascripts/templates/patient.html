@@ -173,25 +173,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>09/21/2015</td>
-                    <td>20:00</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>09/21/2015</td>
-                    <td>20:00</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>09/20/2015</td>
-                    <td>20:00</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>09/19/2015</td>
-                    <td>20:00</td>
-                    <td></td>
+                  <tr ng-repeat="appointment in appointments" ng-click="openEditAppointment('lg', appointment.id)">
+                    <td>{{appointment.date | date:"dd/MM/yyyy"}}</td>
+                    <td>{{appointment.time | date:'h:mm a'}}</td>
+                    <td>{{appointment.visit_type}}</td>
                   </tr>
                 </tbody>
               </table>
