@@ -1,6 +1,10 @@
 <div class="modal-styled">
 <div class="modal-header">
-  <h3 class="modal-title">Schedule Appointment</h3>
+  <h3 class="modal-title">Schedule Appointment
+    <div ng-if="delete" class="modal-heading-button">
+      <button class="btn btn-danger" ng-click="delete()">Cancel Appointment</button>
+    </div>
+  </h3>
 </div>
 <div class="modal-body">
   <aside class="flash row">

@@ -16,7 +16,6 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
       else
         appointmentsFactory.create($scope.appointment,
           ( (newAppointment)-> 
-              $location.path("/appointments")
               $modalInstance.close()
           ),
           onError)
@@ -31,6 +30,10 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
           flash.error   = "Appointment not found"
         )
       )
+
+      $scope.delete = ->
+        $scope.appointment.$delete()
+        $modalInstance.close()
     else
       $scope.appointment =
         visit_type: "Evaluation"

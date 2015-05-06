@@ -5,6 +5,10 @@ controllers.controller("PatientModalController", [ '$scope', '$routeParams', '$l
     $scope.dismiss = () ->
       $modalInstance.dismiss()
 
+    $scope.delete = ->
+      $scope.patient.$delete()
+      $scope.back()
+
     $scope.save = ->
       onError = (_httpResponse)-> flash.error = "Something went wrong"
       if $scope.patient.id
