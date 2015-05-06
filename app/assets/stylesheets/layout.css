@@ -612,6 +612,17 @@ fieldset[disabled] .btn-twitter.active {
 .form-group {
   margin-bottom: 20px;
 }
+.form-group.patient-group,
+.form-group label.time-label {
+  margin-top: 16px;
+}
+.form-group .datepicker-table table {
+  width: 100%;
+}
+.form-group table.time-table {
+  margin-top: -15px;
+  margin-bottom: -13px;
+}
 .edit-user .form-group label {
   padding-top: 4px;
 }

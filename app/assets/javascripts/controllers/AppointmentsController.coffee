@@ -9,6 +9,27 @@ controllers.controller("AppointmentsController", ['$scope', '$routeParams', '$lo
         templateUrl: 'appointment_form.html'
         controller: 'AppointmentModalController'
         size: size
+        resolve:
+          appointmentId: ->
+            return null
+      )
+      modalInstance.result.then ((updatedPatient) ->
+        appointmentsFactory.query((results)-> $scope.appointments = results)
+        return
+      ), ->
+        console.log 'Modal dismissed at: ' + new Date
+        return
+      return
+
+    $scope.openEdit = (size, appointmentId) ->
+      modalInstance = $modal.open(
+        animation: $scope.animationsEnabled
+        templateUrl: 'appointment_form.html'
+        controller: 'AppointmentModalController'
+        size: size
+        resolve:
+          appointmentId: ->
+            return appointmentId
       )
       modalInstance.result.then ((updatedPatient) ->
         appointmentsFactory.query((results)-> $scope.appointments = results)

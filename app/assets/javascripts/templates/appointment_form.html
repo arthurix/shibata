@@ -13,53 +13,75 @@
     <form role="form" class="edit-user form-horizontal">
       <div class="col-sm-6">
 
-        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-          <label class="col-md-2" for="visit_type">Type</label>
+        <div class="form-group patient-group" ng-class="{'has-warning has-feedback':errors.name}">
+          <label class="col-md-2" for="patient_id">Patient</label>
           <div class="col-md-10">
-            <select id="visit_type" class="form-control" ng-model="appointment.visit_type">
-              <option value="Evaluation">Evaluation</option>
-              <option value="Consult">Consult</option>
-              <option value="Return">Return</option>
-            </select>
+            <input type="text" name="patient_id" class="form-control" ng-model='appointment.patient_id' placeholder="1">
           </div>
         </div>
 
-        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-          <datepicker ng-model="appointment.date" show-weeks="true" class="well well-sm"></datepicker>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+              <label class="col-md-4" for="duration">Duration</label>
+              <div class="col-md-8">
+                <select id="duration" class="form-control" ng-model="appointment.duration">
+                  <option selected="true" value="0">30 Minutes</option>
+                  <option value="1">1 Hour</option>
+                  <option value="2">1:30 Hours</option>
+                  <option value="3">2 Hours</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+              <label class="col-md-3" for="visit_type">Type</label>
+              <div class="col-md-9">
+                <select id="visit_type" class="form-control" ng-model="appointment.visit_type">
+                  <option value="Evaluation">Evaluation</option>
+                  <option value="Consult">Consult</option>
+                  <option value="Return">Return</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-          <timepicker ng-model="appointment.time"></timepicker>
-        </div>
-
-        <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-          <label class="col-md-2" for="duration">Duration</label>
-          <div class="col-md-10">
-            <select id="duration" class="form-control" ng-model="appointment.duration">
-              <option selected="true" value="0">30 Minutes</option>
-              <option value="1">1 Hour</option>
-              <option value="2">1:30 Hours</option>
-              <option value="3">2 Hours</option>
-            </select>
+        <div class="row">
+          
+          <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+            <div class="col-md-12">
+              <label for="obs" class="col-md-2">Notes</label>
+              <div class="col-md-10">
+                <textarea rows="11" name="obs" class="form-control" ng-model='appointment.obs' placeholder="Write some notes here"> </textarea>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
       <div class="col-sm-6">
         <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-          <label class="col-md-2" for="patient_id">Patient_id</label>
+          <div class="col-md-2">
+            <label class="time-label" for="time">Time</label>
+          </div>
           <div class="col-md-10">
-            <input type="text" name="patient_id" class="form-control" ng-model='appointment.patient_id' placeholder="1">
+            <timepicker class="time-table" name="time" ng-model="appointment.time"></timepicker>
           </div>
         </div>
 
         <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-          <label class="col-md-2" for="obs">Obs</label>
+          <div class="col-md-2">
+            <label for="date">Date</label>
+          </div>
           <div class="col-md-10">
-            <input type="text" name="obs" class="form-control" ng-model='appointment.obs' placeholder="12-01-1988">
+            <datepicker class="well well-sm datepicker-table" ng-model="appointment.date" show-weeks="true" class="well well-sm"></datepicker>
           </div>
         </div>
 
+
+        
       </div>
     </form>
   </div>

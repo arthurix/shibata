@@ -1,6 +1,8 @@
 controllers = angular.module('controllers')
-controllers.controller("AppointmentModalController", [ '$scope', '$routeParams', '$location', 'flash', 'appointmentsFactory', '$modalInstance'
-  ($scope,$routeParams,$location,flash,appointmentsFactory,$modalInstance)->
+controllers.controller("AppointmentModalController", [ '$scope', '$routeParams', '$location', 'flash', 'appointmentsFactory', '$modalInstance', 'appointmentId'
+  ($scope,$routeParams,$location,flash,appointmentsFactory,$modalInstance,appointmentId)->
+
+    $scope.today = new Date()
 
     $scope.dismiss = () ->
       $modalInstance.dismiss()
@@ -19,14 +21,14 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
           ),
           onError)
 
-    $scope.appointmentId = $routeParams.appointmentId #THIS MUST BE CHANGED FOR EDIT
+    $scope.appointmentId = appointmentId
 
-    if $routeParams.appointmentId
-      appointmentsFactory.get({appointmentId: $routeParams.appointmentId},
+    if appointmentId
+      appointmentsFactory.get({appointmentId: $scope.appointmentId},
         ( (appointment)-> $scope.appointment = appointment ),
         ( (httpResponse)->
           $scope.appointment = null
-          flash.error   = "Client not found"
+          flash.error   = "Appointment not found"
         )
       )
     else
@@ -34,6 +36,5 @@ controllers.controller("AppointmentModalController", [ '$scope', '$routeParams',
         visit_type: "Evaluation"
         duration: 0
         date: new Date()
-        time: new Date()
-
+        time: "2000-01-01T12:00:00.000Z"
 ])
