@@ -30,11 +30,26 @@
             </th>
           </tr>
           <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Mobile Phone</th>
+            <th ng-click="reverse=!reverse;order('id',reverse)">
+              #
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('name',reverse)">
+              Name
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('email',reverse)">
+              Email
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('phone',reverse)">
+              Phone
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('phone',reverse)">
+              Mobile Phone
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
           </tr>
         </thead>
         <tbody>

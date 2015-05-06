@@ -1560,6 +1560,14 @@ label {
   border-bottom-width: 1px;
   vertical-align: middle;
 }
+.table-bordered thead tr:not(:first-child) th {
+  cursor: pointer;
+}
+.table-bordered thead tr:not(:first-child) th i {
+  float: right;
+  margin-right: 5px;
+  padding-top: 3px;
+}
 .table-bordered thead tr th.edit {
   width: 44px;
 }

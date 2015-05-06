@@ -12,7 +12,7 @@
             <th colspan="3">
               <form ng-submit="search(keywords)">
                 <div class="input-group search-form">
-                  <input autocomplete="off" ng-model="keywords" name="keywords" type="text" autofocus class="form-control" ng-model="keywords">
+                  <input autocomplete="off" ng-model="searchTerm" name="keywords" type="text" autofocus class="form-control" ng-model="keywords">
                   <span class="input-group-btn">
                     <button class="btn btn-info" type="button">
                       Search
@@ -30,20 +30,35 @@
             </th>
           </tr>
           <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Client</th>
-            <th>Duration</th>
-            <th>Type</th>
+            <th ng-click="reverse=!reverse;order('id',reverse)">
+              Date
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('time',reverse)">
+              Time
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('obs',reverse)">
+              Client
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('duration',reverse)">
+              Duration
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
+            <th ng-click="reverse=!reverse;order('visit_type',reverse)">
+              Type
+              <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="appointment in appointments" class="patientrow" ng-click="openEdit('lg', appointment.id)">
+          <tr ng-repeat="appointment in appointments | filter: searchTerm" class="patientrow" ng-click="openEdit('lg', appointment.id)">
             <td>
               {{appointment.date | date:"dd/MM/yyyy"}}
             </td>
             <td>{{appointment.time | date:'h:mm a'}}</td>
-            <td>{{appointment.patient_id}}</td>
+            <td>{{appointment.obs}}</td>
             <td>{{appointment.duration}}</td>
             <td>{{appointment.visit_type}}</td>
           </tr>

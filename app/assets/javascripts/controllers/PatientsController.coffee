@@ -1,6 +1,6 @@
 controllers = angular.module('controllers')
-controllers.controller("PatientsController", [ '$http', '$scope', '$routeParams', '$location', 'patientsFactory', '$modal'
-  ($http,$scope,$routeParams,$location,patientsFactory,$modal)->
+controllers.controller("PatientsController", [ '$filter', '$http', '$scope', '$routeParams', '$location', 'patientsFactory', '$modal'
+  ($filter,$http,$scope,$routeParams,$location,patientsFactory,$modal)->
 
     $scope.search = (keywords)->  $location.path("/patients/#{keywords}")
     $scope.view = (patientId)-> $location.path("/patient/#{patientId}/view")
@@ -19,6 +19,11 @@ controllers.controller("PatientsController", [ '$http', '$scope', '$routeParams'
       ), ->
         console.log 'Modal dismissed at: ' + new Date
         return
+      return
+
+    orderBy = $filter('orderBy');
+    $scope.order = (predicate, reverse) ->
+      $scope.patients = orderBy($scope.patients, predicate, reverse)
       return
 
     $scope.$watch('keywords',

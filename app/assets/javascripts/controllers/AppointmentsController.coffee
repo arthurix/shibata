@@ -1,9 +1,11 @@
 controllers = angular.module('controllers')
-controllers.controller("AppointmentsController", ['$scope', '$routeParams', '$location', '$modal', 'appointmentsFactory'
-  ($scope,$routeParams,$location,$modal,appointmentsFactory)->
+controllers.controller("AppointmentsController", ['$filter','$scope', '$routeParams', '$location', '$modal', 'appointmentsFactory'
+  ($filter,$scope,$routeParams,$location,$modal,appointmentsFactory)->
 
     appointmentsFactory.query((results)-> $scope.appointments = results)
 
+    $scope.searchTerm = ""
+    
     $scope.openNew = (size) ->
       modalInstance = $modal.open(
         templateUrl: 'appointment_form.html'
@@ -21,6 +23,11 @@ controllers.controller("AppointmentsController", ['$scope', '$routeParams', '$lo
       ), ->
         console.log 'Modal dismissed at: ' + new Date
         return
+      return
+
+    orderBy = $filter('orderBy');
+    $scope.order = (predicate, reverse) ->
+      $scope.appointments = orderBy($scope.appointments, predicate, reverse)
       return
 
     $scope.openEdit = (size, appointmentId) ->

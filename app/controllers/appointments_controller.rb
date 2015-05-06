@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.all.each { |m| m.obs = m.patient.name }
   end
 
   def find_by_patient
