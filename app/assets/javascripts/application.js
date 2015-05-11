@@ -21,5 +21,7 @@
 //= require angular-flash/dist/angular-flash
 //= require angular-ui-bootstrap-bower/ui-bootstrap-tpls
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
+//= require moment/min/moment.min
+//= require fullcalendar/dist/fullcalendar.min
 
 //= require_tree .

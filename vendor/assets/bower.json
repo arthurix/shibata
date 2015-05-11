@@ -10,6 +10,7 @@
     "angular-ui-bootstrap-bower": "latest",
     "angular-loading-bar": "latest",
     "angular-flash": "latest",
-    "angular-devise": "latest"
+    "angular-devise": "latest",
+    "fullcalendar": "latest"
   }
 }

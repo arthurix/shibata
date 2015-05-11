@@ -365,6 +365,12 @@ fieldset[disabled] .btn-twitter.active {
 .btn-tertiary .caret {
   border-top-color: #fff;
 }
+.btn-group-calendar {
+  letter-spacing: 0px;
+  float: right;
+  margin-right: 20px;
+  margin-top: 25px;
+}
 .dropup .btn-secondary .caret,
 .dropup .btn-tertiary .caret {
   border-bottom-color: #fff;
@@ -805,6 +811,9 @@ label {
 .portlet .portlet-tools .nav-pills > li.active > a:focus {
   color: #fff;
   background-color: #555;
+}
+.portlet .portlet-content.calendar-portlet{
+  padding: 22px 15px 15px;
 }
 .portlet .portlet-content {
   padding: 0px 0px 0px;
@@ -3295,6 +3304,9 @@ table.dataTable th:active {
   line-height: 96px;
   letter-spacing: -2px;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+#content-header .schedule-title {
+  float: left;
 }
 #content-container {
   position: relative;

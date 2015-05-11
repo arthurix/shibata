@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :appointments
   
   get '/patient/:patient_id/appointments', to: 'appointments#find_by_patient'
+  get '/appointments_calendar', to: 'appointments#events_for_calendar'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

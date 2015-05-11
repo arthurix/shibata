@@ -21,8 +21,8 @@ shibata.config([ '$routeProvider', 'flashProvider',
 
     $routeProvider
       .when('/',
-        templateUrl: "patients.html"
-        controller: 'PatientsController'
+        templateUrl: "appointments.html"
+        controller: 'AppointmentsController'
       ).when('/patients',
         templateUrl: "patients.html"
         controller: 'PatientsController'
