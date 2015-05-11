@@ -20,7 +20,10 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
             return null
       )
       modalInstance.result.then ((updatedPatient) ->
-        appointmentsFactory.query((results)-> $scope.appointments = results)
+        appointmentsFactory.query((results)-> 
+          $scope.appointments = results
+          getCalendarEvents(true)
+        )
         return
       ), ->
         console.log 'Modal dismissed at: ' + new Date
@@ -30,7 +33,6 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
     orderBy = $filter('orderBy');
     $scope.order = (predicate, reverse) ->
       $scope.appointments = orderBy($scope.appointments, predicate, reverse)
-      getCalendarEvents()
       return
 
     $scope.openEdit = (size, appointmentId) ->
@@ -46,8 +48,10 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
             return null
       )
       modalInstance.result.then ((updatedPatient) ->
-        appointmentsFactory.query((results)-> $scope.appointments = results)
-        getCalendarEvents()
+        appointmentsFactory.query((results)-> 
+          $scope.appointments = results
+          getCalendarEvents(true)
+        )
         return
       ), ->
         console.log 'Modal dismissed at: ' + new Date
@@ -60,10 +64,13 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
     m = date.getMonth()
     y = date.getFullYear()
 
-    getCalendarEvents = ->
+    getCalendarEvents = (refresh=false) ->
       $http.get('/appointments_calendar?format=json').success((data, status, headers, config) ->
             $scope.appointmentsCalendar = data
-            initCalendar()
+            if refresh
+              refreshCalendar()
+            else
+              initCalendar()
             return
           ).error (data, status, headers, config) ->
             flash.error   = "There was a problem with your request."
@@ -73,6 +80,7 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
       $scope.calendarInstance = $('#calendar').fullCalendar(
         editable: false
         droppable: false  
+        timezone: "local"
         header:
           left: 'prev,next'
           center: 'title'
@@ -80,5 +88,8 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
         events: $scope.appointmentsCalendar
       )
 
+    refreshCalendar = ->
+      $('#calendar').fullCalendar("removeEvents")
+      $('#calendar').fullCalendar( 'addEventSource', $scope.appointmentsCalendar )
     getCalendarEvents()
 ])

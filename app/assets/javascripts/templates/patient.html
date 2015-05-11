@@ -174,8 +174,8 @@
                 </thead>
                 <tbody>
                   <tr ng-repeat="appointment in appointments" ng-click="openEditAppointment('lg', appointment.id)">
-                    <td>{{appointment.date | date:"dd/MM/yyyy"}}</td>
-                    <td>{{appointment.time | date:'h:mm a'}}</td>
+                    <td>{{appointment.date | date:"dd/MM/yyyy":'local'}}</td>
+                    <td>{{appointment.time | date : 'h:mm a':'local'}}</td>
                     <td>{{appointment.visit_type}}</td>
                   </tr>
                   <tr ng-if="appointments.length == 0" class="text-center">
