@@ -30,6 +30,7 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
     orderBy = $filter('orderBy');
     $scope.order = (predicate, reverse) ->
       $scope.appointments = orderBy($scope.appointments, predicate, reverse)
+      getCalendarEvents()
       return
 
     $scope.openEdit = (size, appointmentId) ->
@@ -46,6 +47,7 @@ controllers.controller("AppointmentsController", ['$http','$filter','$scope', '$
       )
       modalInstance.result.then ((updatedPatient) ->
         appointmentsFactory.query((results)-> $scope.appointments = results)
+        getCalendarEvents()
         return
       ), ->
         console.log 'Modal dismissed at: ' + new Date

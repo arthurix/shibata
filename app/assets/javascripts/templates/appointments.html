@@ -41,7 +41,7 @@
               <tr ng-repeat="appointment in appointments" ng-click="openEdit('lg', appointment.id)">
                 <td>{{appointment.time | date:'h:mm a'}}</td>
                 <td>{{appointment.obs}}</td>
-                <td>{{appointment.visit_type}}</td>
+                <td><span class="label" ng-class="appointment.visit_type">{{appointment.visit_type}}</span></td>
               </tr>
               <tr ng-if="appointments.length == 0" class="text-center">
                 <td colspan="3">

@@ -2405,6 +2405,30 @@ html .fc,
   background-color: #444;
   border-color: #444;
 }
+.fc-event.Consult,
+.external-event.Consult {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.fc-event.Return,
+.external-event.Return {
+  background-color: #3498db;
+  border-color: #258cd1;
+}
+.fc-event.Evaluation,
+.external-event.Evaluation {
+  background-color: #888888;
+  border-color: #888888;
+}
+.label.Consult {
+  background-color: #5cb85c;
+}
+.label.Return {
+  background-color: #3498db;
+}
+.label.Evaluation {
+  background-color: #888888;
+}
 .external-event {
   display: inline-block;
   margin: 5px 5px;

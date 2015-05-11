@@ -15,6 +15,6 @@ class Appointment < ActiveRecord::Base
 	end
 
 	def className
-		"fc-red"
+		self.visit_type
 	end
 end
