@@ -24,7 +24,7 @@
         <div class="portlet-header">
           <h3>
             <i class="fa fa-calendar"></i>
-            Next Appointments
+            Appointments
           </h3>
         </div>
         <div class="portlet-content">
@@ -40,7 +40,7 @@
             <tbody>
               <tr ng-repeat="appointment in appointments" ng-click="openEdit('lg', appointment.id)">
                 <td>{{appointment.time | date:'h:mm a':'local'}}</td>
-                <td>{{appointment.obs}}</td>
+                <td>{{appointment.patient_name}}</td>
                 <td><span class="label" ng-class="appointment.visit_type">{{appointment.visit_type}}</span></td>
               </tr>
               <tr ng-if="appointments.length == 0" class="text-center">
@@ -99,7 +99,7 @@
               Time
               <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
             </th>
-            <th ng-click="reverse=!reverse;order('obs',reverse)">
+            <th ng-click="reverse=!reverse;order('patient_name',reverse)">
               Client
               <i class="fa" ng-class="reverse ? 'fa-angle-up' : 'fa-angle-down'"></i>
             </th>
@@ -119,14 +119,13 @@
               {{appointment.date | date:"dd/MM/yyyy":'local'}}
             </td>
             <td>{{appointment.time | date:'h:mm a':'local'}}</td>
-            <td>{{appointment.obs}}</td>
+            <td>{{appointment.patient_name}}</td>
             <td>{{appointment.duration | durationFilter}}</td>
             <td>{{appointment.visit_type}}</td>
           </tr>
           <tr ng-if="filteredAppointments.length == 0" class="text-center">
             <td colspan="5"><span class="h5"><b>No results found.</b></span></td>
           </tr>
-
         </tbody>
       </table>
     </div>
